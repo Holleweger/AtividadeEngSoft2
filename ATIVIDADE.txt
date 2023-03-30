@@ -1,0 +1,21 @@
+Como fazer teste automatizado na linguagem mais confortável CRUD
+
+Todo o caminho percorrido até chegar na resposta
+
+
+
+
+
+
+
+
+
+
+
+Importamos um trabalho que já haviamos feito CRUD em python
+
+Vimos como funcionava o pytest : https://medium.com/data-hackers/testes-unit%C3%A1rios-para-profissionais-de-dados-com-pytest-o-guia-definitivo-5ac05f4ef866
+
+Executamos o pytest em cima do arquivo
+
+Retornou o erro : Atividade.py - OSError: pytest: reading from stdin while output is captured!  Consider using `-s`.
