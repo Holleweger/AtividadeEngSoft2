@@ -15,10 +15,16 @@ def conectarBanco():
     
     
 def criarTabela(conexao):
-    conn = conexao.execute("CREATE TABLE pessoas (codigo INTEGER PRIMARY KEY AUTOINCREMENT,nome TEXT,data_nascimento TEXT,salario REAL (10,2));")
-    conexao.commit()
-    if(conn):
-        print("\nTabela Criada")
+    cursor = conexao.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='pessoas';")
+    result = cursor.fetchall()
+    if (result != []):
+        pass
+    else:
+        conn = conexao.execute("CREATE TABLE pessoas (codigo INTEGER PRIMARY KEY AUTOINCREMENT,nome TEXT,data_nascimento TEXT,salario REAL (10,2));")
+        conexao.commit()
+        if(conn):
+            print("\nTabela Criada")
 
 def insertTabela(conexao,nomes,datas,sal):
 
@@ -30,7 +36,7 @@ def insertTabela(conexao,nomes,datas,sal):
     except sqlite3.Error as error:
         print("\nFailed to insert data in sqlite table", error)
         
-def deleteTabela(conexao,codigo):
+def deleteRow(conexao,codigo):
     try:
         cursor = conexao.cursor()
         conn = cursor.execute(f'DELETE FROM pessoas WHERE codigo = {codigo};')
@@ -113,7 +119,7 @@ def excluirTabela():
                  +"Resposta (S/N) : ")
     
     if(conf.upper() == "S"):
-        deleteTabela(conexao, id)
+        deleteRow(conexao, id)
     
 def updateTabela():
     printar()

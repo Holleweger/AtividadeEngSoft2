@@ -30,3 +30,9 @@ Função test_print_banco e test_print_selected
 	Essa função foi mais fácil de fazer, usando como base a de UPDATE, primeiro testamos todas as variáveis e os valores que elas 	recebem, fazendo isso, descobrimos que o SELECT será executado em qualquer situação, desde que seja passado um ID, o que vai mudar é 	o valor que vai retornar, com isso, descobrimos que podiamos nos aproveitar disso para saber se a função está mesmo retornando o 	valor do SELECT ou, caso não exista valor, um array vazio [].
 	O que precisamos fazer foi mudar um pouco a função, fazendo ela retornar o valor do registro, que seria onde está armazenado a 	informação do select e fizemos uma assert onde, se registro != [], significa que ele retornou valores da tabela, ou seja, 	funcionando corretamente.
 
+Função test_criarTabela 
+	basicamente é feito um select na tabela pessoas, pois a funcao em si cria a tabela e só ela mesma, se ela existir é pq a funcao funcionou corretamente
+
+Função test_deleteRow
+	após o insercao no banco de um valor teste, se chamarmos a funca de remover a insercao e um select significa que a funcao de deleteromw foi um sucesso
+
